@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Password Strength Checker - Lab 2</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">COM 226 - Lab 2</p>
+        <h1>Password Strength Checker</h1>
+        <p class="hero-copy">
+          This educational tool rates password quality using length, character diversity,
+          common-pattern detection, and an estimated entropy score.
+        </p>
+      </div>
+      <div class="hero-badge">
+        <span>Human Factors & Security Weakness Simulation</span>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card checker-card">
+        <label for="password">Enter password</label>
+        <div class="input-row">
+          <input id="password" type="password" placeholder="Type a password to evaluate" autocomplete="off" />
+          <button id="toggleBtn" type="button">Show</button>
+        </div>
+
+        <div class="meter-wrap">
+          <div class="meter-label-row">
+            <span>Strength</span>
+            <strong id="strengthLabel">Not rated</strong>
+          </div>
+          <div class="meter-track">
+            <div id="meterBar" class="meter-bar"></div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-title">Score</span>
+            <strong id="scoreValue">0 / 100</strong>
+          </div>
+          <div class="stat-box">
+            <span class="stat-title">Estimated entropy</span>
+            <strong id="entropyValue">0 bits</strong>
+          </div>
+        </div>
+
+        <div class="feedback">
+          <h3>Checklist</h3>
+          <ul id="criteriaList"></ul>
+        </div>
+
+        <div class="feedback">
+          <h3>Suggestions</h3>
+          <ul id="suggestionsList"></ul>
+        </div>
+      </section>
+
+      <aside class="card info-card">
+        <h2>How the checker works</h2>
+        <ol>
+          <li>Rewards passwords with higher length.</li>
+          <li>Checks lowercase, uppercase, digits, and symbols.</li>
+          <li>Penalizes repeated characters and common weak patterns.</li>
+          <li>Estimates entropy from the character pool used.</li>
+          <li>Provides feedback that users can act on immediately.</li>
+        </ol>
+
+        <div class="examples">
+          <h3>Example ratings</h3>
+          <div class="example-item"><code>12345</code><span>Weak</span></div>
+          <div class="example-item"><code>password</code><span>Weak</span></div>
+          <div class="example-item"><code>Stanley123</code><span>Medium</span></div>
+          <div class="example-item"><code>St@nley2026!</code><span>Strong</span></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
